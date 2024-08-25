@@ -58,6 +58,9 @@ pipeline {
                     }
                     steps {
                         sh '''
+                            npm install serve
+                            node_modules/.bin/serve -s build &
+                            sleep 10
                             npx playwright test --reporter=html
                         '''
                     }
@@ -100,9 +103,6 @@ pipeline {
             }
             steps {
                 sh '''
-                    npm install serve
-                    node_modules/.bin/serve -s build &
-                    sleep 10
                     npx playwright test --reporter=html
                 '''
             }
