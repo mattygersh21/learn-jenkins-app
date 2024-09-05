@@ -9,7 +9,7 @@ pipeline {
 
     stages {
 
-        stages('AWS') {
+        stage('AWS') {
             agent {
                 docker 'amazon/aws-cli'
            }
